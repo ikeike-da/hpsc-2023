@@ -19,12 +19,6 @@ int main(){
     double dt = 0.001;
     double rho = 1;
     double nu = 0.02;
-    vector<float> x(nx);
-    vector<float> y(ny);
-    for (int i=0; i<nx; i++)
-        x[i] = i * dx;
-    for (int j=0; j<ny; j++)
-        y[j] = j * dy;
     matrix u(ny,vector<float>(nx,0));
     matrix v(ny,vector<float>(nx,0));
     matrix b(ny,vector<float>(nx,0));
@@ -63,10 +57,10 @@ int main(){
             }
             for(int j=1; j<ny-1; j++){
                 p[j][nx-1] = p[j][nx-2];
-                p[j][0] = p[j][1];
+                p[j][0]    = p[j][1];
             }
             for(int i=1; i<nx-1; i++){
-                p[0][i] = p[1][i];
+                p[0][i]    = p[1][i];
                 p[ny-1][i] = 0;
             }
         }
